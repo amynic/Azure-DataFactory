@@ -1,0 +1,1 @@
+# Azure Data Factory Sample: Azure Blob Store (only new files) -> Stored Procedure -> SQL DB
