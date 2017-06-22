@@ -1,0 +1,15 @@
+{
+    "name": "IntermediateDataset",
+    "properties": {
+        "published": false,
+        "type": "AzureSqlTable",
+        "linkedServiceName": "SqlLinkedService",
+        "typeProperties": {
+            "tableName": "<temp table name>"
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        }
+    }
+}

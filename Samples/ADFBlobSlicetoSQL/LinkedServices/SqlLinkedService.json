@@ -1,0 +1,11 @@
+{
+    "name": "SqlLinkedService",
+    "properties": {
+        "description": "Azure SQL linked service",
+        "hubName": "<name of data factory>_hub",
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<dbname>;Integrated Security=False;User ID=<loginname>;Password=<password>;Connect Timeout=30;Encrypt=True"
+        }
+    }
+}

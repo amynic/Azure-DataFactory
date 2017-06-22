@@ -1,0 +1,11 @@
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "description": "Azure Storage Linked Service",
+        "hubName": "<nameoffactory>_hub",
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<blobstoraccountname>;AccountKey=<key>"
+        }
+    }
+}

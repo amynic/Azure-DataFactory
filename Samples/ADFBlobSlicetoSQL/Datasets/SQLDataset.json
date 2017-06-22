@@ -1,0 +1,15 @@
+{
+    "name": "SqlDataset",
+    "properties": {
+        "published": false,
+        "type": "AzureSqlTable",
+        "linkedServiceName": "SqlLinkedService",
+        "typeProperties": {
+            "tableName": "<tablename>"
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        }
+    }
+}

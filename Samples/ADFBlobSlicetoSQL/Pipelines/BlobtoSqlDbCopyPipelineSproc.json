@@ -1,0 +1,68 @@
+{
+    "name": "BlobtoSqlDbCopyPipelineSproc",
+    "properties": {
+        "description": "Copies data from Azure Blob to Sql DB while invoking stored procedure",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "SqlSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "StorageDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "IntermediateDataset"
+                    }
+                ],
+                "scheduler": {
+                    "frequency": "Minute",
+                    "interval": 15
+                },
+                "name": "BlobtoSqlTableCopyActivity"
+            },
+            {
+                "type": "SqlServerStoredProcedure",
+                "typeProperties": {
+                    "storedProcedureName": "<stored procedure name>"
+                },
+                "inputs": [
+                    {
+                        "name": "IntermediateDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "SqlDataset"
+                    }
+                ],
+                "policy": {
+                    "timeout": "02:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 3
+                },
+                "scheduler": {
+                    "frequency": "Minute",
+                    "interval": 15
+                },
+                "name": "SqlTabletoSqlDbSprocActivity"
+            }
+        ],
+        "start": "2017-06-21T13:30:00Z",
+        "end": "2017-07-21T00:00:00Z",
+        "isPaused": false,
+        "hubName": "<datafactoryname>_hub",
+        "pipelineMode": "Scheduled"
+    }
+}
