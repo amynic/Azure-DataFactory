@@ -1,0 +1,15 @@
+{
+    "name": "AzureBatchLinkedService",
+    "properties": {
+        "description": "Azure batch compute used to run .NET custom activity on data from URL",
+        "hubName": "<nameofdatafactory>_hub",
+        "type": "AzureBatch",
+        "typeProperties": {
+            "accountName": "<accoutname>",
+            "accessKey": "<key>",
+            "poolName": "<computepoolname>",
+            "batchUri": "https://<region>.batch.azure.com",
+            "linkedServiceName": "AzureStorageLinkedService"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "hubName": "<datafactoryname>_hub",
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<key>;EndpointSuffix=core.windows.net"
+        }
+    }
+}
